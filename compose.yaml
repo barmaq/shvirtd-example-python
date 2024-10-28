@@ -9,8 +9,8 @@ services:
     #содержимое
     image: cr.yandex/crp2k5ir1sju5s4l4ldj/python:1.0
     networks:
-        backend: {}
-          ipv4_address: 172.20.0.5
+      backend: {}
+        ipv4_address: 172.20.0.5
     restart: always
     environment:
       MYSQL_HOST: Db
