@@ -19,7 +19,7 @@ services:
 
   web:
     #содержимое
-    depends on: db
+    depends_on: db
     image: cr.yandex/crp2k5ir1sju5s4l4ldj/python:1.0
     networks:
       backend:
