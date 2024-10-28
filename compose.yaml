@@ -4,19 +4,6 @@ include:
 
 services:
 
-  web:
-    #содержимое
-    image: cr.yandex/crp2k5ir1sju5s4l4ldj/python:1.0
-    networks:
-      backend:
-        ipv4_address: 172.20.0.5
-    restart: always
-    environment:
-      MYSQL_HOST: Db
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}   
-  
   db:
     #содержимое
     image: mysql:8
@@ -29,3 +16,17 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  web:
+    #содержимое
+    depends on: db
+    image: cr.yandex/crp2k5ir1sju5s4l4ldj/python:1.0
+    networks:
+      backend:
+        ipv4_address: 172.20.0.5
+    restart: always
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}   
