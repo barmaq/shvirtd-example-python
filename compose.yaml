@@ -33,4 +33,4 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}   
 
     env_file:
-      - ./env.txt
+      - ./.env.txt
