@@ -16,6 +16,9 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    env_file:
+      - ./.env
+
 
   web:
     #содержимое
@@ -30,7 +33,6 @@ services:
       DB_HOST: db
       DB_NAME: ${MYSQL_DATABASE}
       DB_USER: ${MYSQL_USER}
-      DB_PASSWORD: ${MYSQL_PASSWORD}   
-
+      DB_PASSWORD: ${MYSQL_PASSWORD}      
     env_file:
       - ./.env
